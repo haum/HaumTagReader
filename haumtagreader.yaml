@@ -33,14 +33,14 @@ mqtt:
     topic: haum/gachaum/strike
     payload: "open"
     then:
-    #orange flash on message
+    #green led on message
       - light.turn_on:
             id: activity_led
             brightness: 100%
             red: 0%
             green: 100%
             blue: 0%
-            flash_length: 500ms
+            # flash_length: 500ms
       - switch.turn_on: gache
 
 wifi:
@@ -82,7 +82,7 @@ light:
   variant: WS2812
   pin: D8
   num_leds: 1
-  flash_transition_length: 500ms
+  flash_transition_length: 200ms
   type: GRB
   id: activity_led
   name: "$upper_devicename LED"
