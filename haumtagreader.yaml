@@ -1,6 +1,10 @@
+substitutions:
+  devicename: haumtagreader
+  upper_devicename: HaumTagReader
+
 esphome:
-  name: haumtagreader
-  friendly_name: HaumTagReader
+  name: $devicename
+  friendly_name: $upper_devicename
 
 esp8266:
   board: d1_mini
@@ -16,7 +20,6 @@ mqtt:
   broker: !secret mqtt_broker
   username: !secret mqtt_user
   password: !secret mqtt_password
-
 #blue flash on mqtt connection
   on_connect:
     - light.turn_on:
@@ -78,7 +81,7 @@ light:
   flash_transition_length: 500ms
   type: GRB
   id: activity_led
-  name: ${friendly_name} LED
+  name: "$upper_devicename LED"
   restore_mode: ALWAYS_OFF
 
 switch:
