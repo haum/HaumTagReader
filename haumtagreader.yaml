@@ -33,7 +33,7 @@ mqtt:
     topic: haum/gachaum/strike
     payload: "open"
     then:
-    #green flash
+    #orange flash on message
       - light.turn_on:
             id: activity_led
             brightness: 100%
@@ -65,11 +65,12 @@ pn532_i2c:
   id: pn532_board
   on_tag:
     then:
+    # orange flash on tag
     - light.turn_on:
         id: activity_led
         brightness: 100%
-        red: 0%
-        green: 100%
+        red: 75%
+        green: 25%
         blue: 0%
         flash_length: 500ms
 
