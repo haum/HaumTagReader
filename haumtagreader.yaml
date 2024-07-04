@@ -78,7 +78,7 @@ light:
   flash_transition_length: 500ms
   type: GRB
   id: activity_led
-  name: "${friendly_name} LED"
+  name: ${friendly_name} LED
   restore_mode: ALWAYS_OFF
 
 switch:
@@ -87,6 +87,6 @@ switch:
     id: gache
     name: "Porte"
     on_turn_on:
-    - delay: 500ms
+    - delay: 2s
     - switch.turn_off: gache
 
