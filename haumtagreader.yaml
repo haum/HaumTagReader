@@ -42,6 +42,7 @@ mqtt:
             blue: 0%
             # flash_length: 500ms
       - switch.turn_on: gache
+      - rtttl.play: "success:d=24,o=5,b=100:c,g,b"
 
 wifi:
   ssid: !secret wifi_ssid
@@ -73,6 +74,7 @@ pn532_i2c:
         green: 25%
         blue: 0%
         flash_length: 500ms
+    - rtttl.play: "beep:d=16,o=5,b=100:b"
     - mqtt.publish:
         topic: haum/gachaum/tag/uid
         payload: !lambda 'return x;'
@@ -96,4 +98,14 @@ switch:
     on_turn_on:
     - delay: 2s
     - switch.turn_off: gache
+    - light.turn_off: activity_led
+
+# Define the buzzer output
+output:
+- platform: esp8266_pwm
+  pin: D7
+  id: buzzer
+# Define buzzer as output for RTTTL
+rtttl:
+  output: buzzer
 
