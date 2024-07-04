@@ -73,6 +73,9 @@ pn532_i2c:
         green: 25%
         blue: 0%
         flash_length: 500ms
+    - mqtt.publish:
+        topic: haum/gachaum/tag/uid
+        payload: !lambda 'return x;'
 
 light:
 - platform: neopixelbus
